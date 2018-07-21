@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ksQ-d5-u0x">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,63 +10,219 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Favorites-->
+        <scene sceneID="3UX-yz-BBx">
+            <objects>
+                <viewController id="s3h-FY-l19" customClass="SavedViewController" customModule="WikipediaSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jwl-iS-bDt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="P6c-pB-NYG"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="tIr-js-Ol6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vTq-Wl-SKT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2684" y="-1759"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="eT7-6E-Qf5">
+            <objects>
+                <viewController id="uOw-0Q-pcc" customClass="HistoryViewController" customModule="WikipediaSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1yA-Lp-tnk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mKP-OE-aBO">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mKP-OE-aBO" firstAttribute="top" secondItem="aDr-2G-fWD" secondAttribute="top" id="09Z-7N-Y6b"/>
+                            <constraint firstItem="aDr-2G-fWD" firstAttribute="bottom" secondItem="mKP-OE-aBO" secondAttribute="bottom" id="0dh-7r-g7y"/>
+                            <constraint firstItem="mKP-OE-aBO" firstAttribute="leading" secondItem="aDr-2G-fWD" secondAttribute="leading" id="pKN-Ui-4fF"/>
+                            <constraint firstItem="aDr-2G-fWD" firstAttribute="trailing" secondItem="mKP-OE-aBO" secondAttribute="trailing" id="vmd-Df-4cV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aDr-2G-fWD"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="History" id="RiT-eM-lfT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hIg-Yb-zIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2684" y="-2505"/>
+        </scene>
+        <!--Wikipedia-->
+        <scene sceneID="Cyw-gz-Tli">
+            <objects>
+                <tabBarController title="Wikipedia" id="ksQ-d5-u0x" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7rp-M8-faM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.0044017829929999999" green="0.1471588314" blue="0.3546161652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="s3h-FY-l19" kind="relationship" relationship="viewControllers" id="mYH-jm-6Od"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="KcD-t4-oqm"/>
+                        <segue destination="uOw-0Q-pcc" kind="relationship" relationship="viewControllers" id="XRc-M1-bTA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OEo-PN-Mur" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-866" y="-1488"/>
+        </scene>
+        <!--Wikipedia Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WikipediaSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="WikipediaSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jt9-Gj-qkk">
-                                <rect key="frame" x="0.0" y="56" width="375" height="611"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="prominent" placeholder="Search Wikipedia" translatesAutoresizingMaskIntoConstraints="NO" id="RfB-zc-aBv">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="yes" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jt9-Gj-qkk">
+                                <rect key="frame" x="0.0" y="76" width="375" height="542"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ABa-OT-S4s">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResultsCell" rowHeight="100" id="ABa-OT-S4s" customClass="ResultTableViewCell" customModule="WikipediaSearch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ABa-OT-S4s" id="MKB-zl-Ktw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ShR-Td-1Zg">
+                                                    <rect key="frame" x="4" y="4" width="92" height="92"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="91.5" id="5CW-lD-Pie"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHp-PA-yCI">
+                                                    <rect key="frame" x="103" y="11" width="264" height="19"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <font key="NSFont" size="17" name="Arial-BoldMT"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Add-iO-6T2">
+                                                    <rect key="frame" x="103" y="34" width="264" height="57.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="yHp-PA-yCI" secondAttribute="trailing" constant="8" id="8Or-TX-Xct"/>
+                                                <constraint firstItem="Add-iO-6T2" firstAttribute="top" secondItem="yHp-PA-yCI" secondAttribute="bottom" constant="4" id="Se4-ZZ-5qc"/>
+                                                <constraint firstItem="ShR-Td-1Zg" firstAttribute="top" secondItem="MKB-zl-Ktw" secondAttribute="top" constant="4" id="VhU-TU-RTc"/>
+                                                <constraint firstItem="ShR-Td-1Zg" firstAttribute="leading" secondItem="MKB-zl-Ktw" secondAttribute="leading" constant="4" id="Z2Y-7D-YtQ"/>
+                                                <constraint firstItem="yHp-PA-yCI" firstAttribute="top" secondItem="MKB-zl-Ktw" secondAttribute="top" constant="11" id="Zmv-JP-Lc0"/>
+                                                <constraint firstAttribute="bottom" secondItem="Add-iO-6T2" secondAttribute="bottom" constant="8" id="bIU-s8-Luj"/>
+                                                <constraint firstItem="Add-iO-6T2" firstAttribute="trailing" secondItem="yHp-PA-yCI" secondAttribute="trailing" id="cm3-YZ-y1O"/>
+                                                <constraint firstItem="Add-iO-6T2" firstAttribute="leading" secondItem="yHp-PA-yCI" secondAttribute="leading" id="dhU-ip-fZU"/>
+                                                <constraint firstAttribute="bottom" secondItem="ShR-Td-1Zg" secondAttribute="bottom" constant="4" id="y0E-I7-cKL"/>
+                                                <constraint firstItem="yHp-PA-yCI" firstAttribute="leading" secondItem="ShR-Td-1Zg" secondAttribute="trailing" constant="7" id="yd5-X4-tCM"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <connections>
+                                            <outlet property="Label1" destination="yHp-PA-yCI" id="Hlx-ia-1AW"/>
+                                            <outlet property="Label2" destination="Add-iO-6T2" id="KSA-RL-lXO"/>
+                                            <outlet property="ThumbnailView" destination="ShR-Td-1Zg" id="76m-kc-X7a"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="pGF-XZ-HU6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="yzg-PG-Qwe"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Jt9-Gj-qkk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7DB-7z-sab"/>
-                            <constraint firstItem="pGF-XZ-HU6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9D5-Js-sAG"/>
-                            <constraint firstItem="pGF-XZ-HU6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9KU-UD-MQw"/>
-                            <constraint firstItem="Jt9-Gj-qkk" firstAttribute="top" secondItem="pGF-XZ-HU6" secondAttribute="bottom" id="Div-xP-7QA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RfB-zc-aBv" secondAttribute="trailing" id="9WY-eQ-pWr"/>
+                            <constraint firstItem="Jt9-Gj-qkk" firstAttribute="top" secondItem="RfB-zc-aBv" secondAttribute="bottom" id="HDU-iZ-TRx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jt9-Gj-qkk" secondAttribute="bottom" id="MJa-ir-gMS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="RfB-zc-aBv" secondAttribute="top" id="Rih-af-kQR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jt9-Gj-qkk" secondAttribute="trailing" id="mWy-ub-trD"/>
-                            <constraint firstItem="pGF-XZ-HU6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qCx-7D-FWy"/>
+                            <constraint firstItem="RfB-zc-aBv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wLe-vu-Jam"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Search" id="Qjc-hO-vM8"/>
+                    <navigationItem key="navigationItem" title="Wikipedia Search" id="DkS-9U-V2n" userLabel="Wikipedia Search"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="ONa-zo-tPV" id="Oc7-Zu-xHG"/>
+                        <outlet property="ResultsTable" destination="Jt9-Gj-qkk" id="ylr-5w-Yhv"/>
+                        <outlet property="SearchBar" destination="RfB-zc-aBv" id="4dy-fl-5fG"/>
+                        <segue destination="S9L-ee-8ld" kind="show" identifier="DetailWiki" id="BAC-P2-ZU8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="ONa-zo-tPV">
-                    <connections>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="l3v-2K-9ef"/>
-                        <outlet property="searchBar" destination="pGF-XZ-HU6" id="dsg-0f-LBy"/>
-                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="096-xd-bWE"/>
-                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="YXw-qD-rHd"/>
-                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="2Ql-4A-bXx"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
+            <point key="canvasLocation" x="2684" y="-932"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="R0v-UI-UId">
+            <objects>
+                <viewController id="S9L-ee-8ld" customClass="WebViewController" customModule="WikipediaSearch" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O1o-c1-Ytk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R9D-Od-7ht">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IFL-67-kgJ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="FJu-7i-YVD">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" style="plain" id="5e3-Eg-WFV">
+                                            <connections>
+                                                <action selector="BackButtonClicked:" destination="S9L-ee-8ld" id="B1f-Ri-w5W"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ix4-La-ZVV" firstAttribute="bottom" secondItem="R9D-Od-7ht" secondAttribute="bottom" id="4qH-IG-jqS"/>
+                            <constraint firstItem="ix4-La-ZVV" firstAttribute="trailing" secondItem="R9D-Od-7ht" secondAttribute="trailing" id="7k4-GM-wj9"/>
+                            <constraint firstItem="ix4-La-ZVV" firstAttribute="trailing" secondItem="IFL-67-kgJ" secondAttribute="trailing" id="CWO-Ca-c2X"/>
+                            <constraint firstItem="R9D-Od-7ht" firstAttribute="leading" secondItem="ix4-La-ZVV" secondAttribute="leading" id="Czh-Rq-bhb"/>
+                            <constraint firstItem="IFL-67-kgJ" firstAttribute="leading" secondItem="ix4-La-ZVV" secondAttribute="leading" id="apI-En-lO7"/>
+                            <constraint firstItem="ix4-La-ZVV" firstAttribute="top" secondItem="IFL-67-kgJ" secondAttribute="top" id="yaN-Hb-Pcx"/>
+                            <constraint firstItem="R9D-Od-7ht" firstAttribute="top" secondItem="IFL-67-kgJ" secondAttribute="bottom" id="zOe-7K-6bH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ix4-La-ZVV"/>
+                    </view>
+                    <connections>
+                        <outlet property="BackButton" destination="5e3-Eg-WFV" id="VIG-cE-BbH"/>
+                        <outlet property="WebView" destination="R9D-Od-7ht" id="bRA-s5-Lqf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ymD-dm-Aqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4124" y="-932"/>
         </scene>
     </scenes>
 </document>
