@@ -25,22 +25,30 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Saved" id="NL4-4c-tDg"/>
+                                    <navigationItem title="Saved" id="NL4-4c-tDg">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Mdw-WT-2lI">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="ClearAllClicked:" destination="s3h-FY-l19" id="ida-Se-WbK"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AsB-QW-h6G">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AsB-QW-h6G">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SavedCell" id="Wvg-6b-XY6" customClass="SavedTableViewCell" customModule="WikipediaSearch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SavedCell" rowHeight="75" id="Wvg-6b-XY6" customClass="SavedTableViewCell" customModule="WikipediaSearch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wvg-6b-XY6" id="gFt-bO-TEU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jjh-b5-Npf">
-                                                    <rect key="frame" x="16" y="4" width="351" height="35.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jjh-b5-Npf">
+                                                    <rect key="frame" x="8" y="4" width="359" height="66.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Label">
                                                             <attributes>
@@ -56,9 +64,10 @@
                                                 <constraint firstAttribute="bottom" secondItem="Jjh-b5-Npf" secondAttribute="bottom" constant="4" id="I8D-YD-Z9I"/>
                                                 <constraint firstItem="Jjh-b5-Npf" firstAttribute="top" secondItem="gFt-bO-TEU" secondAttribute="top" constant="4" id="bd6-zu-D0i"/>
                                                 <constraint firstAttribute="trailing" secondItem="Jjh-b5-Npf" secondAttribute="trailing" constant="8" id="rSA-cm-rCu"/>
-                                                <constraint firstItem="Jjh-b5-Npf" firstAttribute="leading" secondItem="gFt-bO-TEU" secondAttribute="leading" constant="16" id="spt-ab-Hqu"/>
+                                                <constraint firstItem="Jjh-b5-Npf" firstAttribute="leading" secondItem="gFt-bO-TEU" secondAttribute="leading" constant="8" id="spt-ab-Hqu"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="Label1" destination="Jjh-b5-Npf" id="v4o-dl-0LL"/>
                                         </connections>
@@ -114,7 +123,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="Label">
                                                             <attributes>
-                                                                <font key="NSFont" size="17" name="Futura-Medium"/>
+                                                                <font key="NSFont" size="19" name="Futura-Medium"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -374,6 +383,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ix4-La-ZVV"/>
                     </view>
+                    <navigationItem key="navigationItem" id="EOH-lY-KiV"/>
                     <connections>
                         <outlet property="BackButton" destination="5e3-Eg-WFV" id="VIG-cE-BbH"/>
                         <outlet property="WebView" destination="R9D-Od-7ht" id="bRA-s5-Lqf"/>

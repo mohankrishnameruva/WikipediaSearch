@@ -12,6 +12,10 @@ class SavedViewController: UIViewController {
 
     @IBOutlet weak var SavedSearchesTable: UITableView!
     var savedArray : [NSDictionary] = [NSDictionary]()
+    @IBAction func ClearAllClicked(_ sender: Any) {
+        savedArray.removeAll()
+        UserDefaults.standard.set([NSDictionary](), forKey: "savedPages")
+    }
     var selectedpageid : String? = nil
     var selectedpagetitle : String? = nil
     @IBOutlet weak var savedTable: UITableView!
@@ -19,12 +23,29 @@ class SavedViewController: UIViewController {
         super.viewDidLoad()
 savedTable.delegate = self
         savedTable.dataSource = self
+        savedTable.addSubview(self.refreshControl)
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(self.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.red
+        
+        return refreshControl
+    }()
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.savedArray = UserDefaults.standard.value(forKey: "savedPages") as! [NSDictionary]
+        self.savedTable.reloadData()
+        
+        refreshControl.endRefreshing()
+    }
 
 }
 extension SavedViewController : UITableViewDelegate, UITableViewDataSource{
