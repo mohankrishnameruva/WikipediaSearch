@@ -10,6 +10,7 @@ import UIKit
 
 class SavedViewController: UIViewController {
 
+    @IBOutlet weak var SavedSearchesTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 

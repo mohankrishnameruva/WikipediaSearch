@@ -11,12 +11,22 @@ import Alamofire
 import AlamofireImage
 
 class SearchViewController: UIViewController {
+    var HistoryArray:[String] = []
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        if let HisArr = UserDefaults.standard.value(forKey: "HistoryArray"){
+            HistoryArray = HisArr as! [String]
+        }
+        else{
+            UserDefaults.standard.setValue([], forKey: "HistoryArray")
+        }
         SearchBar.delegate = self
         ResultsTable.delegate = self
         ResultsTable.dataSource = self
+        SearchBar.becomeFirstResponder()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -38,14 +48,21 @@ class SearchViewController: UIViewController {
         }
     }
 }
-extension SearchViewController: UISearchBarDelegate{
+extension SearchViewController: UISearchBarDelegate,UITabBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.CallWikiAPI(searchText: searchBar.text!)
     }
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("SearchClicked")
         self.CallWikiAPI(searchText: searchBar.text!)
+        self.SearchBar.resignFirstResponder()
+        HistoryArray.append(SearchBar.text!)
+        UserDefaults.standard.setValue(HistoryArray, forKey: "HistoryArray")
+        
     }
+    
     
     
 }
@@ -68,6 +85,8 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
         }else{
             GetImageforpage(page: currentPage)
         }
+        cell.layer.cornerRadius = 10
+        cell.layer.masksToBounds = true
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

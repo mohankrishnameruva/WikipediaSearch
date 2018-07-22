@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		012DE22B2103635B007A8780 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012DE22A2103635B007A8780 /* HomeViewController.swift */; };
+		012DE22D2103A3E5007A8780 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012DE22C2103A3E5007A8780 /* HistoryTableViewCell.swift */; };
+		012DE22F2103C80A007A8780 /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012DE22E2103C80A007A8780 /* SavedTableViewCell.swift */; };
 		0131BBFD2101FB2E001A370F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0131BBFC2101FB2E001A370F /* AppDelegate.swift */; };
 		0131BBFF2101FB2E001A370F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0131BBFE2101FB2E001A370F /* SearchViewController.swift */; };
 		0131BC022101FB2E001A370F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0131BC002101FB2E001A370F /* Main.storyboard */; };
@@ -45,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		012DE22A2103635B007A8780 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		012DE22C2103A3E5007A8780 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		012DE22E2103C80A007A8780 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
+		012DE2322103DC08007A8780 /* WikipediaSearch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WikipediaSearch.entitlements; sourceTree = "<group>"; };
 		0131BBF92101FB2E001A370F /* WikipediaSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikipediaSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0131BBFC2101FB2E001A370F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0131BBFE2101FB2E001A370F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +137,7 @@
 		0131BBFB2101FB2E001A370F /* WikipediaSearch */ = {
 			isa = PBXGroup;
 			children = (
+				012DE2322103DC08007A8780 /* WikipediaSearch.entitlements */,
 				01A6D02021033A4E00859B1C /* Util */,
 				01CC30CA21022FE60085F0CB /* Model */,
 				01CC30C5210212360085F0CB /* ViewControllers */,
@@ -175,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				01CC30CD2102321F0085F0CB /* ResultTableViewCell.swift */,
+				012DE22C2103A3E5007A8780 /* HistoryTableViewCell.swift */,
+				012DE22E2103C80A007A8780 /* SavedTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -186,6 +196,7 @@
 				01496F4A21026686001EE033 /* WebViewController.swift */,
 				01A6D01C21031A1700859B1C /* HistoryViewController.swift */,
 				01A6D01E21031B2D00859B1C /* SavedViewController.swift */,
+				012DE22A2103635B007A8780 /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -294,6 +305,11 @@
 					0131BBF82101FB2E001A370F = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					0131BC0F2101FB2E001A370F = {
 						CreatedOnToolsVersion = 9.1;
@@ -438,11 +454,14 @@
 			files = (
 				01CC30CC21022FF80085F0CB /* page.swift in Sources */,
 				01CC30C7210215C10085F0CB /* Router.swift in Sources */,
+				012DE22F2103C80A007A8780 /* SavedTableViewCell.swift in Sources */,
 				0131BC052101FB2E001A370F /* WikipediaSearch.xcdatamodeld in Sources */,
 				01A6D01F21031B2D00859B1C /* SavedViewController.swift in Sources */,
 				0131BBFF2101FB2E001A370F /* SearchViewController.swift in Sources */,
 				01496F4B21026686001EE033 /* WebViewController.swift in Sources */,
+				012DE22D2103A3E5007A8780 /* HistoryTableViewCell.swift in Sources */,
 				01A6D02221033A6300859B1C /* utilities.swift in Sources */,
+				012DE22B2103635B007A8780 /* HomeViewController.swift in Sources */,
 				01CC30CE2102321F0085F0CB /* ResultTableViewCell.swift in Sources */,
 				0131BBFD2101FB2E001A370F /* AppDelegate.swift in Sources */,
 				01A6D01D21031A1700859B1C /* HistoryViewController.swift in Sources */,
@@ -612,12 +631,15 @@
 			baseConfigurationReference = 69E445F5FDB2D52230BE94B1 /* Pods-WikipediaSearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BHBRU78PZ2;
+				DEVELOPMENT_TEAM = 9U7Y45UZ8Q;
 				INFOPLIST_FILE = WikipediaSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Mohan.WikipediaSearch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.incture.WikipediaSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -628,12 +650,14 @@
 			baseConfigurationReference = FF2F41D3863ED8BF339415C2 /* Pods-WikipediaSearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BHBRU78PZ2;
+				DEVELOPMENT_TEAM = 9U7Y45UZ8Q;
 				INFOPLIST_FILE = WikipediaSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Mohan.WikipediaSearch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.incture.WikipediaSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
