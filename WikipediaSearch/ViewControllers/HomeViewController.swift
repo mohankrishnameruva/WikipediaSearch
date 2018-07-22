@@ -16,7 +16,6 @@ class HomeViewController: UITabBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//      
 //        firstVC.title = "Wiki Search"
 //        firstVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
 //        firstVC.tabBarItem.image = #imageLiteral(resourceName: "searchIconDark").withRenderingMode(UIImageRenderingMode.alwaysOriginal)
@@ -40,7 +39,9 @@ class HomeViewController: UITabBarController{
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
-        tabBarController?.selectedViewController = tabBarController?.viewControllers![2]
+        super.viewDidAppear(animated)
+  
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

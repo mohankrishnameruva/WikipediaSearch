@@ -13,6 +13,7 @@ class ResultTableViewCell: UITableViewCell {
     @IBOutlet weak var Label2: UILabel!
     @IBOutlet weak var Label1: UILabel!
     @IBOutlet weak var ThumbnailView: UIImageView!
+    @IBOutlet weak var mainView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -12,11 +12,15 @@ import AlamofireImage
 
 class SearchViewController: UIViewController {
     var HistoryArray:[String] = []
-    
+    var BookmarksArray : [String] = []
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        if let _ = UserDefaults.standard.value(forKey: "savedPages"){}
+        else{
+            UserDefaults.standard.setValue([NSDictionary](), forKey: "savedPages")}
         
+
         if let HisArr = UserDefaults.standard.value(forKey: "HistoryArray"){
             HistoryArray = HisArr as! [String]
         }
@@ -45,6 +49,7 @@ class SearchViewController: UIViewController {
             let dest = segue.destination as! WebViewController
             dest.selectedPageId = self.selectedPage?.pageid?.stringValue
             dest.pagetitle = self.selectedPage?.title
+            dest.selectedPage = self.selectedPage
         }
     }
 }
@@ -63,6 +68,9 @@ extension SearchViewController: UISearchBarDelegate,UITabBarDelegate{
         
     }
     
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        BookmarksArray.append(searchBar.text!)
+    }
     
     
 }
@@ -85,12 +93,14 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
         }else{
             GetImageforpage(page: currentPage)
         }
-        cell.layer.cornerRadius = 10
-        cell.layer.masksToBounds = true
+        cell.mainView.layer.cornerRadius = 10
+        cell.mainView.layer.masksToBounds = true
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedPage = ResultsArray[indexPath.row] as page
+        self.HistoryArray.append(SearchBar.text!)
+         UserDefaults.standard.setValue(HistoryArray, forKey: "HistoryArray")
         self.performSegue(withIdentifier: "DetailWiki", sender: self)
     }
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

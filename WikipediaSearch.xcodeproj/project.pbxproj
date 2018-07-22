@@ -25,6 +25,7 @@
 		01CC30C7210215C10085F0CB /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CC30C6210215C10085F0CB /* Router.swift */; };
 		01CC30CC21022FF80085F0CB /* page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CC30CB21022FF80085F0CB /* page.swift */; };
 		01CC30CE2102321F0085F0CB /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CC30CD2102321F0085F0CB /* ResultTableViewCell.swift */; };
+		01D1A70D21049E2A005C1BB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01D1A70C21049E2A005C1BB4 /* Images.xcassets */; };
 		469CDD4C132EEC02FCD5A880 /* Pods_WikipediaSearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE97726B8576F481AD058868 /* Pods_WikipediaSearchUITests.framework */; };
 		7E22E02D39DC85BE510202A3 /* Pods_WikipediaSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1588759170A3689566AF77 /* Pods_WikipediaSearch.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		F94EF996FCC91E9FE6DCCBE7 /* Pods_WikipediaSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4527A38E2D170FB2D0BFDDA /* Pods_WikipediaSearchTests.framework */; };
@@ -73,6 +74,7 @@
 		01CC30C6210215C10085F0CB /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		01CC30CB21022FF80085F0CB /* page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = page.swift; sourceTree = "<group>"; };
 		01CC30CD2102321F0085F0CB /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
+		01D1A70C21049E2A005C1BB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0653C897494CBFE46C76B05A /* Pods-WikipediaSearchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikipediaSearchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WikipediaSearchUITests/Pods-WikipediaSearchUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4E9767B92B5DA27A54DA28F5 /* Pods-WikipediaSearchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikipediaSearchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WikipediaSearchTests/Pods-WikipediaSearchTests.release.xcconfig"; sourceTree = "<group>"; };
 		69E445F5FDB2D52230BE94B1 /* Pods-WikipediaSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikipediaSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WikipediaSearch/Pods-WikipediaSearch.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				0131BC082101FB2E001A370F /* LaunchScreen.storyboard */,
 				0131BC0B2101FB2E001A370F /* Info.plist */,
 				0131BC032101FB2E001A370F /* WikipediaSearch.xcdatamodeld */,
+				01D1A70C21049E2A005C1BB4 /* Images.xcassets */,
 			);
 			path = WikipediaSearch;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0131BC0A2101FB2E001A370F /* LaunchScreen.storyboard in Resources */,
+				01D1A70D21049E2A005C1BB4 /* Images.xcassets in Resources */,
 				0131BC072101FB2E001A370F /* Assets.xcassets in Resources */,
 				0131BC022101FB2E001A370F /* Main.storyboard in Resources */,
 			);

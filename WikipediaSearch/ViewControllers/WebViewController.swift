@@ -14,6 +14,7 @@ class WebViewController: UIViewController,WKNavigationDelegate {
     var selectedPageId : String?
     var pagetitle: String?
     var urlRequestCache : URLRequest?
+    var selectedPage : page?
     
     var indicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
 //    var store : WKWebsiteDataRecord = WKWebsiteDataRecord()
@@ -23,13 +24,18 @@ class WebViewController: UIViewController,WKNavigationDelegate {
     @IBAction func BackButtonClicked(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func SaveButtonClicked(_ sender: Any) {
+        var savedPage = NSMutableDictionary()
+        savedPage.setValue(selectedPage?.title, forKey: "title")
+        savedPage.setValue(selectedPage?.pageid, forKey: "pageid")
+        var savedPages :[NSDictionary] = UserDefaults.standard.value(forKey: "savedPages") as! [NSDictionary]
+        savedPages.append(savedPage)
+        UserDefaults.standard.set(savedPages , forKey: "savedPages")
+    }
     @IBOutlet weak var BackButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        store?.dataTypes = WKWebsiteDataTypeOfflineWebApplicationCache
-        
         self.WebView.navigationDelegate = self
-
         self.WebpageTitle.title = pagetitle
         
         if let _ = selectedPageId {
@@ -58,13 +64,12 @@ class WebViewController: UIViewController,WKNavigationDelegate {
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.loaderStop()
-        webView
         
     }
-    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-
-//        cache.storeCachedResponse( CachedURLResponse(response: navigationResponse.response, data: Data()), for: self.urlRequestCache!)
-    }
+//    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+//
+////        cache.storeCachedResponse( CachedURLResponse(response: navigationResponse.response, data: Data()), for: self.urlRequestCache!)
+//    }
 
     
     func loaderStart()

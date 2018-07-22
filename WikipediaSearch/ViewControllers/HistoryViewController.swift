@@ -9,11 +9,20 @@
 import UIKit
 
 class HistoryViewController: UIViewController {
+
+    @IBAction func ClearHistory(_ sender: Any) {
+        self.HistoryArray = []
+        UserDefaults.standard.set([], forKey: "HistoryArray")
+        self.HistoryTable.reloadData()
+    }
     @IBOutlet weak var HistoryTable: UITableView!
+    var selectedItem: String? = nil
     var HistoryArray : [String] = []
+    
     override func viewDidLoad() {
       
         super.viewDidLoad()
+        
         HistoryTable.addSubview(self.refreshControl)
        
         // Do any additional setup after loading the view.
@@ -62,6 +71,19 @@ extension HistoryViewController : UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tabBarController?.selectedIndex = 0
+        let searchCont:SearchViewController = self.tabBarController?.viewControllers![0] as! SearchViewController
+        selectedItem = HistoryArray[indexPath.row] as! String
+        searchCont.CallWikiAPI(searchText: selectedItem!)
+        searchCont.SearchBar.text = selectedItem
+    }
+  
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let dest = segue.destination as! SearchViewController
+//        dest.CallWikiAPI(searchText: (selectedItem)!)
+//        dest.resignFirstResponder()
+//        dest.SearchBar.text = sele
+    }
     
 }
